@@ -3,10 +3,9 @@ console.log("Ready to go!")
 //request to site
 function loadRequest(weatherUrl) {
     const request = new XMLHttpRequest();
-    request.onreadystatechange = () => {
+    request.onload = () => {
         if (request.readyState === 4 && request.status === 200) {
             let weatherData = JSON.parse(request.response)
-            //let temperature = weatherData.main.temp;
             displayTemp(weatherData)
         }
     }
